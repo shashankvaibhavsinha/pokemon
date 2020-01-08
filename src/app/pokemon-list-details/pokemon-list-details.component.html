@@ -1,0 +1,30 @@
+<div class="background">
+  <div class="form-wrapper-outer">
+    <div class="form-logo">
+        <span class = "brand">Pokemon</span>
+    </div>
+    <div *ngIf="response">
+      <h1 class="field-wrapper text-center">
+        {{response.name | uppercase}}
+      </h1>
+      <div class="field-wrapper" style="overflow-y: scroll; height: 200px;">
+        <ul>
+          <li><b>Abitlities</b>
+            <div *ngFor="let a of response.abilities">
+              {{a.ability.name}}
+            </div>
+          </li>
+          <li><b>Id:</b> {{response.id}}</li>
+          <li><b>Base Experience:</b> {{response.base_experience}}</li>
+          <li><b>Order:</b> {{response.order}}</li>
+          <li><b>Height:</b> {{response.height}}</li>
+          <li><b>Weight:</b> {{response.weight}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field-wrapper">
+      <a routerLink="../pokemon" class="btn btn-primary"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
+      <!-- <button type="submit" class="btn btn-primary">Next&nbsp;<i class="fa fa-arrow-right"></i></button> -->
+    </div>
+  </div>
+</div>

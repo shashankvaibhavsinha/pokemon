@@ -1,0 +1,31 @@
+<div class="background">
+  <div class="form-wrapper-outer">
+    <div class="form-logo">
+        <!-- <img src="../../../../assets/images/logo.png" alt="logo" class="logo"> -->
+        <span class = "brand">Pokemon</span>
+    </div>
+    <div class="field-wrapper">
+      <input type="email" name="email" [(ngModel)]="pokemonName">
+      <div class="field-placeholder"><span>Enter name</span></div>
+    </div>
+      <div class="field-wrapper" style="overflow-y: scroll; height: 200px;">
+        <div *ngIf="pokemonName">
+          <div *ngFor="let n of name">
+            <ul *ngIf="(n.name).includes(pokemonName)">
+              <li><a routerLink="../pokemon-details" (click)="pokemon(n.url)">{{n.name}}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div *ngIf="!pokemonName">
+          <ul *ngFor="let n of name">
+            <li><a routerLink="../pokemon-details" (click)="pokemon(n.url)">{{n.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="field-wrapper">
+        <button type="submit" (click)="previous()" class="btn btn-primary"><i class="fa fa-arrow-left"></i>&nbsp;Previous</button>
+        &nbsp;&nbsp;&nbsp;
+        <button type="submit" (click)="next()" class="btn btn-primary">Next&nbsp;<i class="fa fa-arrow-right"></i></button>
+     </div>
+  </div>
+</div>
